@@ -1,0 +1,66 @@
+body{
+background: linear-gradient(90deg, rgba(97, 0, 51, 1.000) 0.000%, rgba(97, 0, 51, 1.000) 7.692%, rgba(109, 0, 48, 1.000) 7.692%, rgba(109, 0, 48, 1.000) 15.385%, rgba(127, 0, 49, 1.000) 15.385%, rgba(127, 0, 49, 1.000) 23.077%, rgba(149, 14, 52, 1.000) 23.077%, rgba(149, 14, 52, 1.000) 30.769%, rgba(175, 29, 57, 1.000) 30.769%, rgba(175, 29, 57, 1.000) 38.462%, rgba(200, 45, 65, 1.000) 38.462%, rgba(200, 45, 65, 1.000) 46.154%, rgba(223, 62, 76, 1.000) 46.154%, rgba(223, 62, 76, 1.000) 53.846%, rgba(241, 78, 88, 1.000) 53.846%, rgba(241, 78, 88, 1.000) 61.538%, rgba(253, 93, 101, 1.000) 61.538%, rgba(253, 93, 101, 1.000) 69.231%, rgba(255, 108, 116, 1.000) 69.231%, rgba(255, 108, 116, 1.000) 76.923%, rgba(252, 123, 130, 1.000) 76.923%, rgba(252, 123, 130, 1.000) 84.615%, rgba(239, 136, 145, 1.000) 84.615%, rgba(239, 136, 145, 1.000) 92.308%, rgba(220, 148, 158, 1.000) 92.308% 100.000%)
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;   
+}
+form{
+    background: rgb(245, 237, 237);
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 3rem;
+    width: 50%;
+    height: 55vh;
+    align-items: center;
+    
+}
+form h2{
+    font-family: "Playfair Display", serif;
+    letter-spacing:1px;
+    font-size: 2rem;
+}
+form input{
+    padding: .5rem;
+    width: 60%;
+    font-size: 1.5rem;
+    border-radius: .2rem;
+    font-family: "Roboto", sans-serif;
+}
+label{
+    font-size: 1.2rem;
+    padding: 1rem;
+    align-self: first baseline;
+    margin-left: 8vw;
+    font-family: "Playfair Display", serif;
+}
+.boton{
+    margin: 1.5rem;
+      background: rgba(240, 114, 120, 0.644) ;
+    color: aliceblue;
+    font-family:"Roboto", sans-serif;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 12vw;
+}
+.btn-container{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+}
+.btn-container p{
+    font-size: 1.2rem;
+    margin: 0;
+}
+a{
+    color: black;
+    font-size: 1.3rem;
+    
+}
+a:visited{
+    color: black
+}
