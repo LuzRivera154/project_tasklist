@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($usuarioValidado) {
             $_SESSION['username'] = $usuarioValidado['User'];
             $_SESSION['id'] = $usuarioValidado['id'];
-            header('Location: inicio.php');
+            header('Location: inicio-fr.php');
         } else {
-            echo "<script>alert('Usuario o contraseña incorrectos');</script>";
+            echo "<script>alert(' Nom d’utilisateur ou mot de passe incorrect');</script>";
         }
     }
 }
@@ -38,15 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <form action="" method="post">
-            <h2>Ingresa tu usuario y contraseña</h2>
-            <label for="user">Usuario:</label>
+            <h2>Entrez votre nom d'utilisateur et votre mot de passe</h2>
+            <label for="user">Nom d'utilisateur :</label>
             <input type="text" name="user" id="user" required>
-            <label for="password">Contraseña:</label>
+            <label for="password">Mot de passe:</label>
             <input type="password" name="password" id="password"  required>
-            <input type="submit" class="boton" name="Ingresar" value="Ingresar">
+            <input type="submit" class="boton" name="Ingresar" value="Se connecter">
             <div class="btn-container">
-                <p>Todavia no te registraste?</p>
-                <a href="registro.php">Registrarme</a>
+                <p>Vous n’êtes pas encore inscrit ?</p>
+                <a href="registro.php">S’inscrire</a>
             </div>
         </form>
     </div>

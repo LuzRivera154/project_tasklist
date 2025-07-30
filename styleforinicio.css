@@ -36,11 +36,28 @@ body {
 .container-exit {
   font-size: 1.5rem;
   padding: 1rem;
+    font-family: "Outfit", sans-serif;
 }
-
+.icono-agregar{
+  color: #270763;
+  font-size: 2rem;
+  padding-left: .3rem;
+}
+.icono-agregar:hover{
+  color: #4711ab;
+}
+.icono-inicio{
+  color: #610033;
+  font-size: 2rem;
+  padding-left: .3rem;
+}
+.icono-inicio:hover{
+color: #990453;
+}
 .exit {
   font-size: 2rem;
   color: rgb(248, 20, 20);
+  padding-left: .3rem;
 }
 
 .exit:hover {

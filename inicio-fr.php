@@ -3,22 +3,19 @@ session_start();
 
 
 require_once 'crud-for-tasklist.php';
-$mensaje_fem = "Bienvenida ";
-$mensaje_masc = "Bienvenido ";
 
 if (!isset($_SESSION['id'])) {
-    header("Location: index.php");
+    header("Location: index-fr.php");
 }
+
 if (isset($_SESSION['id'])) {
     $id_user = $_SESSION['id'];
     $tareas = getById($id_user);
-    $genero = recuperarGenero($id_user);
 }
-
 if (isset($_POST['completar_id'])) {
     $idTarea = $_POST['completar_id'];
     updatetarea($idTarea);
-    header("Location: inicio.php");
+    header("Location: inicio-fr.php");
 }
 if (isset($_POST['agregar'])) {
     $titulo = $_POST['titulo'];
@@ -26,20 +23,20 @@ if (isset($_POST['agregar'])) {
     $tiempo = $_POST['tiempo'];
     $id_user = $_SESSION['id'];
     AgregarTarea($id_user, $titulo, $descripcion, $tiempo);
-    header("Location: inicio.php");
+    header("Location: inicio-fr.php");
 }
 
 if (isset($_GET['eliminar_id'])) {
     $id = $_GET['eliminar_id'];
     $eliminar = deleteById($id);
-    header("Location: inicio.php");
+    header("Location: inicio-fr.php");
 }
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <script src="https://kit.fontawesome.com/82497b746b.js" crossorigin="anonymous"></script>
@@ -53,18 +50,24 @@ if (isset($_GET['eliminar_id'])) {
 </head>
 
 <body>
+    <form action="" method="get">
+        <select name="idioma" id="idioma">
+            <option value="frances">Frances</option>
+            <option value="Español">Español</option>
+        </select>
+    </form>
     <div class="container">
 
         <nav class="container-exit">
             <ul>
-                <li><a href="profile.php">Perfil
+                <li><a href="profile-fr.php">Profil
                         <i class="fa-solid fa-circle-user icono-inicio"></i>
                     </a></li>
-                <li><a href="#agregar-tarea">Agregar Tarea
+                <li><a href="#agregar-tarea">Ajouter une tâche
                         <i class="fa-solid fa-pen-to-square icono-agregar"></i>
                     </a></li>
                 <li>
-                    <a href="exit.php" name="exit">Exit
+                    <a href="exit.php" name="exit">Sortir
                         <i class="fa-solid fa-right-from-bracket exit"></i>
                     </a>
                 </li>
@@ -73,22 +76,18 @@ if (isset($_GET['eliminar_id'])) {
 
         </form>
         <section class="container-bienvenida">
-            <?php if ($genero[0]['Genero'] == "Femenino"): ?>
-                <h1 class="titulo"><?= $mensaje_fem ?> <?= $_SESSION['username'] ?></h1>
-            <?php elseif ($genero[0]['Genero'] == "Masculino"): ?>
-                <h1 class="titulo"><?= $mensaje_masc ?> <?= $_SESSION['username'] ?></h1>
-            <?php endif; ?>
-            <p class="parrafo-container-bienvenida">Tareas pendientes</p>
+                <h1 class="titulo">Bienvenue <?= $_SESSION['username'] ?></h1>
+            <p class="parrafo-container-bienvenida">Tâches en attente</p>
         </section>
         <section class="container-tabla">
             <table class="tabla">
                 <thead>
                     <tr>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Tiempo</th>
-                        <th>Estado</th>
-                        <th>Eliminar</th>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Temps</th>
+                        <th>État</th>
+                        <th>Supprimer</th>
                     </tr>
                 </thead>
                 <tbody class="tabla-body">
@@ -97,12 +96,12 @@ if (isset($_GET['eliminar_id'])) {
                                 <tr>
                                     <td><?= $tarea['tarea'] ?></td>
                                     <td><?= $tarea['descripcion'] ?></td>
-                                    <td><?= $tarea['tiempo'] ?> Minutos</td>
+                                    <td><?= $tarea['tiempo'] ?> Minutes</td>
                                     <td>
                                         <?php if ($tarea['estado'] !== 'completada'): ?>
                                             <form method="post" action="inicio.php">
                                                 <input type="hidden" name="completar_id" value="<?= $tarea['id'] ?>">
-                                                <button type="submit" class="completar" name="completar">✔ Completar</button>
+                                                <button type="submit" class="completar" name="completar">✔ Terminer</button>
                                             </form>
                                         <?php else: ?>
                                             <i class="fa-solid fa-circle-check check"></i>
@@ -123,16 +122,16 @@ if (isset($_GET['eliminar_id'])) {
 
         <!-- OTRA TABLA PARA MOSTRAR LO YA COMPLETADO -->
 
-        <h2 class="tareas-completadas">Tareas completadas</h2>
+        <h2 class="tareas-completadas">Tâches terminées</h2>
         <section class="container-tabla">
             <table class="tabla">
                 <thead>
                     <tr>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Tiempo</th>
-                        <th>Estado</th>
-                        <th>Eliminar</th>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Temps</th>
+                        <th>État</th>
+                        <th>Supprimer</th>
                     </tr>
                 </thead>
                 <tbody class="tabla-body">
@@ -141,7 +140,7 @@ if (isset($_GET['eliminar_id'])) {
                             <tr>
                                 <td><?= $tarea['tarea'] ?></td>
                                 <td><?= $tarea['descripcion'] ?></td>
-                                <td><?= $tarea['tiempo'] ?> Minutos</td>
+                                <td><?= $tarea['tiempo'] ?> Minutes</td>
                                 <td>
                                     <i class="fa-solid fa-circle-check check"></i>
                                 </td>
@@ -159,18 +158,18 @@ if (isset($_GET['eliminar_id'])) {
         </section>
         <a name="agregar-tarea"></a>
         <section class="agregar-tarea">
-            <p class="parrafo-tarea">Agregar tarea</p>
+            <p class="parrafo-tarea">Ajouter une tâche</p>
             <form action="" method="post" class="form-ingresar">
-                <label for="titulo">Titulo:
+                <label for="titulo">Titre:
                     <input type="text" name="titulo" required>
                 </label>
-                <label for="descripcion">Descripción:
+                <label for="descripcion">Description:
                     <input type="text" name="descripcion" class="input-grande">
                 </label>
-                <label for="tiempo">Tiempo (minutos):
+                <label for="tiempo">Temps (minutes):
                     <input type="number" min="1" step="1" name="tiempo">
                 </label>
-                <input type="submit" name="agregar" id="btn-agregar" value="Agregar">
+                <input type="submit" name="agregar" id="btn-agregar" value="Ajouter">
             </form>
         </section>
     </div>

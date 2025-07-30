@@ -110,3 +110,35 @@ function deleteByIdPerfil($id)
     $stmt = $db->prepare($sql);
     $stmt->execute(['id' => $id]);
 }
+
+//BORRAR TODAS LAS TAREAS AL MISMO TIEMPO
+
+function borrarTodasLasTareas($id)
+{
+    $db = conection();
+    $sql = "DELETE FROM Tasklist WHERE id_user = :id_user";
+    $eliminar = $db ->prepare($sql);
+    $eliminar -> execute(['id_user' => $id]);
+}
+
+
+//VER PERFIL
+function verPerfil($id)
+{
+    $db = conection();
+    $sql = "SELECT * FROM UserForTasklist WHERE id = :id";
+    $ver = $db->prepare($sql);
+    $ver->execute([
+        'id' => $id
+    ]);
+    return $ver->fetchAll(PDO::FETCH_ASSOC);
+}
+//CAMBIAR CONTRASENA
+function updatepassword($id,$password){
+    $db = conection();
+    $sql = "UPDATE UserForTasklist SET Password = :password WHERE id = :id";
+    $cambiar = $db -> prepare($sql);
+    $cambiar -> execute(['id' => $id, 'password' => password_hash($password, PASSWORD_BCRYPT) ]);
+}
+
+//FUNCION CAMBIAR IDIOMA GET=FR OR GET=ESP
