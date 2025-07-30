@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, rgba(208, 65, 94, 1.000) 0.000%, rgba(208, 65, 94, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 80.000%, rgba(230, 216, 134, 1.000) 80.000% 100.000%)
+}
+
+.container {
+  height: 70%;
+  background: #faebd7a6;
+  width: 90vw;
+  margin: 2rem auto;
+  border-radius: 3rem;
+}
+
+
+/*NAV*/
+.container-exit ul {
+  display: flex;
+  justify-content: space-around;
+}
+.container-exit ul li{
+  list-style: none;
+
+}
+.container-exit ul li a{
+   text-decoration: none;  
+  color: inherit;
+  border: none;
+  outline: none;
+   
+}
+.container-exit ul li a:hover{
+  color: #902553;
+ border-bottom:3px solid #902553 ;
+ transition: all .5s;
+}
+.container-exit {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.exit {
+  font-size: 2rem;
+  color: rgb(248, 20, 20);
+}
+
+.exit:hover {
+  color: rgb(247, 134, 134);
+}
+
+/*CONTAINER BIENVENIDA*/
+.container-bienvenida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  font-size:3.3rem;
+  margin: 0;
+  letter-spacing: 1px;
+  padding: 1rem;
+  font-family: "Tagesschrift", system-ui;
+}
+
+.parrafo-container-bienvenida {
+  font-size: 2rem;
+  margin: 1rem;
+    font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.container-tabla {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+th {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.tabla-body td {
+  padding: .5rem;
+}
+
+.tabla-body {
+  text-align: center;
+  font-size: 1.3rem;
+  background-color: none;
+  background-image: none;
+  background: #a04d6a;
+  color: #fcede6;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 1px;
+  
+
+}
+
+.tabla {
+  display: table;
+  border-spacing: 0;
+  max-width: 100%;
+  width: 80vw;
+  height: 30vh;
+  border: 1px solid #610033;
+  border-radius: 10px;
+  overflow: hidden;
+  
+}
+
+thead {
+  background: #610033;
+  color: #f7d6c7;
+  font-family: "Tagesschrift", system-ui;
+}
+
+/*iconos de la tabla*/
+
+.completar {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  padding: .2rem;
+  transition: color .5s, background .5s, border-radius .5s;
+
+}
+
+.completar:hover {
+  background: rgb(87, 159, 87);
+  color: #f6f1f1;
+  border-radius: 3rem;
+}
+
+.check {
+  color: rgb(100, 185, 100);
+  background: #ffffff;
+  border-radius: 50%;
+  border: 3px solid rgb(87, 159, 87);
+  
+  
+}
+
+.eliminar {
+  color: #8b050e;
+  font-size: 1.3rem;
+  background: #f6f1f1;
+  border-radius: 3rem;
+}
+
+.eliminar:hover {
+  color: #c00613;
+  background: #fbfbfb;
+  }
+  /*AGREGAR TAREA ESTILO*/
+  .parrafo-tarea {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+     font-family: "Outfit", sans-serif;
+     text-decoration: 3px underline #4e529b;
+     border-bottom: 2px solid rgb(117, 12, 82);
+     margin: 1rem 0 0 0 ;
+  
+  }
+  .agregar-tarea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .form-ingresar{
+    display: flex;
+    flex-direction: column;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1.1px;
+  }
+  .form-ingresar label{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .form-ingresar input{
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 20rem;
+   font-family: "Roboto", sans-serif;
+   font-size: 1.2rem;
+   letter-spacing: 2px;
+  }
+  .input-grande{
+    width: 20rem;
+    height: 5rem;
+  }
+#btn-agregar{
+  margin: 1rem auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+}
+#btn-agregar:hover{
+  background: #a2546fad;
+  color: #ecdfd9;
+}
+
+/*segunda tabla*/
+
+.tareas-completadas{
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  font-style: italic;
+
+}
