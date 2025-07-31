@@ -47,6 +47,17 @@ if (isset($_POST['cambiar'])) {
 </head>
 
 <body>
+    <div class="idioma">
+        <ul class="ul-idioma">
+            <li class="opcion">Langue
+                <ul class="ul-container">
+                    <li class="lista-idioma"><a href="profile.php">Español</a></li>
+                    <li class="lista-idioma"><a href="profile-fr.php">Frances</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
     <div class="container">
         <nav class="container-nav">
             <ul>
@@ -82,7 +93,7 @@ if (isset($_POST['cambiar'])) {
             <form action="" method="post" class="form-eliminar">
                 <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form" onsubmit="return confirmarCambio()" value="Changer le mot de passe">
             </form>
-            <form action="" method="get" class="form-eliminar" >
+            <form action="" method="get" class="form-eliminar">
                 <input type="submit" name="eliminar_perfil" id="eliminar_perfil" class="btn-form" value="Supprimer le profil">
             </form>
         </section>
@@ -110,6 +121,16 @@ if (isset($_POST['cambiar'])) {
         event.preventDefault();
         document.getElementById('escondida').style.display = 'block'
     })
+
+    const opcion = document.querySelector('.ul-idioma .opcion');
+    const menu = opcion.querySelector('.ul-container');
+
+    let abierto = false;
+
+    opcion.addEventListener('click', () => {
+        abierto = !abierto;
+        menu.style.display = abierto ? 'block' : 'none';
+    });
 </script>
 
 </html>

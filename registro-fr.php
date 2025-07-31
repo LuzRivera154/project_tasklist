@@ -13,18 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             registro($nombre, $usuario, $email, $password, $genero);
             // ✅ Mensaje si todo salió bien
-            echo "<script>alert('Registro exitoso');</script>";
-            header('Location: index.php');
+            echo "<script>alert('Inscription réussie');</script>";
+            header('Location: index-fr.php');
             exit;
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) { // código de error SQL para violación de restricción (como UNIQUE)
                 if (str_contains($e->getMessage(), 'User')) {
-                    echo "<script>alert('El nombre de usuario o email ya está en uso');</script>";
+                    echo "<script>alert('Le nom d'utilisateur ou l'e-mail est déjà utilisé');</script>";
                 } else {
-                    echo "<script>alert('Falta completar el campo de genero');</script>";
+                    echo "<script>alert('Le champ genre est obligatoire');</script>";
                 }
             } else {
-                echo "<script>alert('Error al registrar: " . $e->getMessage() . "');</script>";
+                echo "<script>alert('Erreur lors de l'inscription: " . $e->getMessage() . "');</script>";
             }
         }
     }
@@ -58,25 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="container">
         <form action="" method="POST">
-            <h2>Registrarme</h2>
-            <label for="user">Nombre:</label>
+            <h2>M'inscrire</h2>
+            <label for="user">Prénom:</label>
             <input type="text" name="name" id="name" required>
-            <label for="user">User:</label>
+            <label for="user">Nom d'utilisateur:</label>
             <input type="text" name="user" id="user" required>
-            <label for="genero" id="genero">Genero:</label>
+            <label for="genero" id="genero">Genre:</label>
             <select name="genero" class="genero-select" required> 
-            <option value="principal" disabled selected hidden>Elegi una opcion</option>
-            <option value="Femenino">Mujer</option>
-            <option value="Masculino">Hombre</option>
+            <option value="principal" disabled selected hidden>Choisissez une option</option>
+            <option value="Femenino">Femme</option>
+            <option value="Masculino">Homme</option>
             </select>
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
-            <label for="password">Password (minimo 8 caracteres):</label>
+            <label for="password"> Mot de passe (minimum 8 caractères) :</label>
             <input type="password" name="password" id="password" minlength="8" required>
-            <input type="submit" class="boton" name="Registrar" value="Registrar">
+            <input type="submit" class="boton" name="Registrar" value="S'inscrire">
             <div class="btn-container">
-                <p>Ya tenes una cuenta?</p>
-                <a href="index.php">Ingresa</a>
+                <p>Vous avez déjà un compte?</p>
+                <a href="index-fr.php">Se connecter</a>
             </div>
         </form>
     </div>

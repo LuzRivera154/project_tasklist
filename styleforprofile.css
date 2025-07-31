@@ -5,6 +5,53 @@ body {
   padding: 0;
 }
 
+/* IDIOMA*/
+
+.ul-idioma {
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  position: relative;
+  text-align: end;
+  margin: 1rem 8rem;
+  cursor: pointer;
+
+}
+
+.ul-container {
+  position: absolute;
+  margin-top: 1rem;
+  right: -2rem;
+  background: rgb(241, 234, 234);
+  border: 1px solid #ccc;
+  padding: .5rem;
+  border-radius: .5rem;
+  border: 1px solid #ccc;
+  display: none;
+  min-width: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.lista-idioma {
+  padding: .3em 0;
+  list-style: none;
+
+}
+
+.lista-idioma a {
+  color: black;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+.lista-idioma a:hover{
+ color: rgb(154, 30, 102);
+}
+.ul-idioma li.opcion:hover .ul-container {
+  display: block;
+}
+
+
 body {
   margin: 0;
   background: linear-gradient(135deg, rgba(208, 65, 94, 1.000) 0.000%, rgba(208, 65, 94, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 80.000%, rgba(230, 216, 134, 1.000) 80.000% 100.000%);

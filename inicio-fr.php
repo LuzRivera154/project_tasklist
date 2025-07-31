@@ -50,12 +50,17 @@ if (isset($_GET['eliminar_id'])) {
 </head>
 
 <body>
-    <form action="" method="get">
-        <select name="idioma" id="idioma">
-            <option value="frances">Frances</option>
-            <option value="Español">Español</option>
-        </select>
-    </form>
+    <div class="idioma">
+        <ul class="ul-idioma">
+            <li class="opcion">Langue
+                <ul class="ul-container">
+                    <li class="lista-idioma"><a href="inicio.php">Español</a></li>
+                    <li class="lista-idioma"><a href="inicio-fr.php">Frances</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
     <div class="container">
 
         <nav class="container-exit">
@@ -67,7 +72,7 @@ if (isset($_GET['eliminar_id'])) {
                         <i class="fa-solid fa-pen-to-square icono-agregar"></i>
                     </a></li>
                 <li>
-                    <a href="exit.php" name="exit">Sortir
+                    <a href="exit.php" name="exit">Exit
                         <i class="fa-solid fa-right-from-bracket exit"></i>
                     </a>
                 </li>
@@ -76,7 +81,7 @@ if (isset($_GET['eliminar_id'])) {
 
         </form>
         <section class="container-bienvenida">
-                <h1 class="titulo">Bienvenue <?= $_SESSION['username'] ?></h1>
+            <h1 class="titulo">Bienvenue <?= $_SESSION['username'] ?></h1>
             <p class="parrafo-container-bienvenida">Tâches en attente</p>
         </section>
         <section class="container-tabla">
@@ -92,30 +97,30 @@ if (isset($_GET['eliminar_id'])) {
                 </thead>
                 <tbody class="tabla-body">
                     <?php foreach ($tareas as $tarea): ?>
-                            <?php if ($tarea['estado'] !== 'completada'): ?>
-                                <tr>
-                                    <td><?= $tarea['tarea'] ?></td>
-                                    <td><?= $tarea['descripcion'] ?></td>
-                                    <td><?= $tarea['tiempo'] ?> Minutes</td>
-                                    <td>
-                                        <?php if ($tarea['estado'] !== 'completada'): ?>
-                                            <form method="post" action="inicio.php">
-                                                <input type="hidden" name="completar_id" value="<?= $tarea['id'] ?>">
-                                                <button type="submit" class="completar" name="completar">✔ Terminer</button>
-                                            </form>
-                                        <?php else: ?>
-                                            <i class="fa-solid fa-circle-check check"></i>
-                                        <?php endif; ?>
-                                    </td>
+                        <?php if ($tarea['estado'] !== 'completada'): ?>
+                            <tr>
+                                <td><?= $tarea['tarea'] ?></td>
+                                <td><?= $tarea['descripcion'] ?></td>
+                                <td><?= $tarea['tiempo'] ?> Minutes</td>
+                                <td>
+                                    <?php if ($tarea['estado'] !== 'completada'): ?>
+                                        <form method="post" action="inicio-fr.php">
+                                            <input type="hidden" name="completar_id" value="<?= $tarea['id'] ?>">
+                                            <button type="submit" class="completar" name="completar">✔ Terminer</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <i class="fa-solid fa-circle-check check"></i>
+                                    <?php endif; ?>
+                                </td>
                                 <td>
                                     <form method="get" action="">
                                         <input type="hidden" name="eliminar_id" value="<?= $tarea['id'] ?>">
                                         <button type="submit"><i class="fa-solid fa-circle-xmark eliminar"></i></button>
                                     </form>
                                 </td>
-                                </tr>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>
@@ -174,5 +179,16 @@ if (isset($_GET['eliminar_id'])) {
         </section>
     </div>
 </body>
+<script>
+    const opcion = document.querySelector('.ul-idioma .opcion');
+    const menu = opcion.querySelector('.ul-container');
+
+    let abierto = false;
+
+    opcion.addEventListener('click', () => {
+        abierto = !abierto;
+        menu.style.display = abierto ? 'block' : 'none';
+    });
+</script>
 
 </html>

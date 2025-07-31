@@ -36,20 +36,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+
+    <div class="idioma">
+        <ul class="ul-idioma">
+            <li class="opcion">Langue
+                <ul class="ul-container">
+                    <li class="lista-idioma"><a href="index.php">Español</a></li>
+                    <li class="lista-idioma"><a href="index-fr.php">Frances</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <form action="" method="post">
             <h2>Entrez votre nom d'utilisateur et votre mot de passe</h2>
             <label for="user">Nom d'utilisateur :</label>
             <input type="text" name="user" id="user" required>
             <label for="password">Mot de passe:</label>
-            <input type="password" name="password" id="password"  required>
+            <input type="password" name="password" id="password" required>
             <input type="submit" class="boton" name="Ingresar" value="Se connecter">
             <div class="btn-container">
                 <p>Vous n’êtes pas encore inscrit ?</p>
-                <a href="registro.php">S’inscrire</a>
+                <a href="registro-fr.php">S’inscrire</a>
             </div>
         </form>
     </div>
 </body>
+<script>
+    const opcion = document.querySelector('.ul-idioma .opcion');
+    const menu = opcion.querySelector('.ul-container');
+
+    let abierto = false;
+
+    opcion.addEventListener('click', () => {
+        abierto = !abierto;
+        menu.style.display = abierto ? 'block' : 'none';
+    });
+</script>
 
 </html>

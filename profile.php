@@ -47,6 +47,17 @@ if (isset($_POST['cambiar'])) {
 </head>
 
 <body>
+        <div class="idioma">
+        <ul class="ul-idioma">
+            <li class="opcion">Idioma
+                <ul class="ul-container">
+                    <li class="lista-idioma"><a href="profile.php">Español</a></li>
+                    <li class="lista-idioma"><a href="profile-fr.php">Frances</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
     <div class="container">
         <nav class="container-nav">
             <ul>
@@ -110,6 +121,16 @@ if (isset($_POST['cambiar'])) {
         event.preventDefault();
         document.getElementById('escondida').style.display = 'block'
     })
+
+    const opcion = document.querySelector('.ul-idioma .opcion');
+    const menu = opcion.querySelector('.ul-container');
+
+    let abierto = false;
+
+    opcion.addEventListener('click', () => {
+        abierto = !abierto;
+        menu.style.display = abierto ? 'block' : 'none';
+    });
 </script>
 
 </html>
