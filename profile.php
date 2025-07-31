@@ -22,11 +22,15 @@ if (isset($_GET['eliminar_perfil'])) {
     session_destroy();
     header("Location: index.php");
 }
-if (isset($_POST['cambiar'])) {
-    $id = $_SESSION['id'];
-    $password = $_POST['password'];
-    $cambiar = updatepassword($id, $password);
-    echo "<script>alert('Se guardo tu contraseña');</script>";
+if (!empty($_POST['password'])) {
+    if (isset($_POST['cambiar'])) {
+        $id = $_SESSION['id'];
+        $password = $_POST['password'];
+        $cambiar = updatepassword($id, $password);
+        echo "<script>alert('Se guardo tu contraseña');</script>";
+    }
+} else {
+    echo "<script>alert('El campo contraseña está vacío');</script>";
 }
 
 ?>

@@ -17,7 +17,11 @@ body {
   cursor: pointer;
 
 }
-
+.opcion{
+  text-decoration: underline;
+  border-radius: .5rem;
+  padding: .5rem;
+}
 .ul-container {
   position: absolute;
   margin-top: 1rem;

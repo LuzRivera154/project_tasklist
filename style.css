@@ -14,7 +14,11 @@ background: linear-gradient(90deg, rgba(97, 0, 51, 1.000) 0.000%, rgba(97, 0, 51
   cursor: pointer;
 
 }
-
+.opcion{
+  text-decoration: underline;
+  border-radius: .5rem;
+  padding: .5rem;
+}
 .ul-container {
   position: absolute;
   margin-top: 1rem;
