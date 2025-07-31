@@ -22,15 +22,11 @@ if (isset($_GET['eliminar_perfil'])) {
     session_destroy();
     header("Location: index.php");
 }
-if (!empty($_POST['password'])) {
-    if (isset($_POST['cambiar'])) {
-        $id = $_SESSION['id'];
-        $password = $_POST['password'];
-        $cambiar = updatepassword($id, $password);
-        echo "<script>alert('Se guardo tu contraseña');</script>";
-    }
-} else {
-    echo "<script>alert('El campo contraseña está vacío');</script>";
+if (isset($_POST['cambiar'])) {
+    $id = $_SESSION['id'];
+    $password = $_POST['password'];
+    $cambiar = updatepassword($id, $password);
+    echo "<script>alert('Se guardo tu contraseña');</script>";
 }
 
 ?>
@@ -94,8 +90,8 @@ if (!empty($_POST['password'])) {
             </div>
         </section>
         <section class="eliminar-perfil">
-            <form action="" method="post" class="form-eliminar">
-                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form" onsubmit="return confirmarCambio()" value="Cambiar contraseña">
+            <form action="" method="get" class="form-eliminar" >
+                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form"   value="Cambiar contraseña">
             </form>
             <form action="" method="get" class="form-eliminar" onsubmit="return confirmarEliminacion()">
                 <input type="submit" name="eliminar_perfil" id="eliminar_perfil" class="btn-form" value="Eliminar perfil">
@@ -103,10 +99,10 @@ if (!empty($_POST['password'])) {
         </section>
         <section class="section-escondida" id="escondida">
             <p>Cambiar contraseña</p>
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="return confirmarCambio()">
                 <label for="password">Nueva contraseña (minimo 8 caracteres): </label>
-                <input type="password" name="password" id="password" class="password" minlength="8">
-                <input type="submit" value="Cambiar" class="cambiar" name="cambiar">
+                <input type="password" name="password" id="password" class="password" minlength="8" required >
+                <input type="submit" value="Cambiar" class="cambiar" name="cambiar" >
             </form>
         </section>
     </div>
@@ -121,7 +117,7 @@ if (!empty($_POST['password'])) {
     function confirmarCambio() {
         return confirm("Estas seguro que queres cambiar tu contraseña?");
     }
-    document.getElementById('btn-form').addEventListener('click', function() {
+    document.getElementById('btn-form').addEventListener('click', function(event) {
         event.preventDefault();
         document.getElementById('escondida').style.display = 'block'
     })

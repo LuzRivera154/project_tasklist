@@ -22,16 +22,14 @@ if (isset($_GET['eliminar_perfil'])) {
     session_destroy();
     header("Location: index-fr.php");
 }
-if (!empty($_POST['password'])) {
-    if (isset($_POST['cambiar'])) {
-        $id = $_SESSION['id'];
-        $password = $_POST['password'];
-        $cambiar = updatepassword($id, $password);
-        echo "<script>alert('Votre mot de passe a été enregistré');</script>";
-    }
-} else {
-    echo "<script>alert('Le champ mot de passe est vide');</script>";
+
+if (isset($_POST['cambiar'])) {
+    $id = $_SESSION['id'];
+    $password = $_POST['password'];
+    $cambiar = updatepassword($id, $password);
+    echo "<script>alert('Votre mot de passe a été enregistré');</script>";
 }
+
 
 ?>
 
@@ -95,9 +93,9 @@ if (!empty($_POST['password'])) {
         </section>
         <section class="eliminar-perfil">
             <form action="" method="post" class="form-eliminar">
-                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form" onsubmit="return confirmarCambio()" value="Changer le mot de passe">
+                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form" value="Changer le mot de passe">
             </form>
-            <form action="" method="get" class="form-eliminar">
+            <form action="" method="get" class="form-eliminar" onsubmit="return confirmarEliminacion()">
                 <input type="submit" name="eliminar_perfil" id="eliminar_perfil" class="btn-form" value="Supprimer le profil">
             </form>
         </section>
@@ -105,7 +103,7 @@ if (!empty($_POST['password'])) {
             <p>Changer le mot de passe</p>
             <form action="" method="post" onsubmit="return confirmarCambio()">
                 <label for="password">Nouveau mot de passe (minimum 8 caractères): </label>
-                <input type="password" name="password" id="password" class="password" minlength="8">
+                <input type="password" name="password" id="password" class="password" minlength="8" required>
                 <input type="submit" value="Changer" class="cambiar" name="cambiar">
             </form>
         </section>
