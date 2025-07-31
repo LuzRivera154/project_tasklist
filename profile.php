@@ -29,6 +29,29 @@ if (isset($_POST['cambiar'])) {
     echo "<script>alert('Se guardo tu contraseña');</script>";
 }
 
+$directorio = "uploads";
+$filePath = __DIR__ . '/' . $rutaFoto;
+
+if (isset($_FILES['imagen'])  &&  $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+    $userId = $_SESSION['id'];
+    $imagen = $_FILES['imagen'];
+    $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+    $nombreArchivo = "perfil_" . $userId . "." . $extension;
+    $patch = $directorio . '/' . $nombreArchivo;
+    $patch = $directorio . '/' . $nombreArchivo;
+
+    if (move_uploaded_file($imagen['tmp_name'], $patch)) {
+        echo "<script>alert('Foto subida con exito!');</script>";
+        //funcion para guardar la foto en base de datos
+        $fotos = agregarFoto($patch, $userId);
+    } else {
+        echo "<script>alert('Error!');</script>";
+    }
+}
+
+
+$rutaFoto = verFoto($_SESSION['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +70,7 @@ if (isset($_POST['cambiar'])) {
 </head>
 
 <body>
-        <div class="idioma">
+    <div class="idioma">
         <ul class="ul-idioma">
             <li class="opcion">Idioma
                 <ul class="ul-container">
@@ -76,7 +99,19 @@ if (isset($_POST['cambiar'])) {
         </nav>
 
         <section class="ver-informacion">
-            <i class="fa-solid fa-circle-user icono-user"></i>
+            <div class="container-foto de perfil">
+            <?php
+                if ($rutaFoto && file_exists($filePath)): ?>
+                    <img src="<?= htmlspecialchars($rutaFoto) ?>" class="foto-perfil" alt="Foto de perfil">
+                <?php else: ?>
+                    <i class="fa-solid fa-circle-user icono-user"></i>
+                <?php endif; ?>
+                <form action="" class="form-foto" method="post" enctype="multipart/form-data">
+                    <label for="imagen">Cambiar foto de perfil</label>
+                    <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required>
+                    <input type="submit" name="subir_foto" class="btn-subir-foto" value="Subir foto">
+                </form>
+            </div>
             <div>
                 <h2 class="titulo-informacion">Informaciones</h2>
                 <ul class="lista">
@@ -87,11 +122,13 @@ if (isset($_POST['cambiar'])) {
                         <li>Genero: <?= $perfil['Genero']; ?> </li>
                     <?php endforeach; ?>
                 </ul>
+
             </div>
         </section>
         <section class="eliminar-perfil">
-            <form action="" method="get" class="form-eliminar" >
-                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form"   value="Cambiar contraseña">
+
+            <form action="" method="get" class="form-eliminar">
+                <input type="submit" name="cambiar_contraseña" id="btn-form" class="btn-form" value="Cambiar contraseña">
             </form>
             <form action="" method="get" class="form-eliminar" onsubmit="return confirmarEliminacion()">
                 <input type="submit" name="eliminar_perfil" id="eliminar_perfil" class="btn-form" value="Eliminar perfil">
@@ -101,8 +138,8 @@ if (isset($_POST['cambiar'])) {
             <p>Cambiar contraseña</p>
             <form action="" method="post" onsubmit="return confirmarCambio()">
                 <label for="password">Nueva contraseña (minimo 8 caracteres): </label>
-                <input type="password" name="password" id="password" class="password" minlength="8" required >
-                <input type="submit" value="Cambiar" class="cambiar" name="cambiar" >
+                <input type="password" name="password" id="password" class="password" minlength="8" required>
+                <input type="submit" value="Cambiar" class="cambiar" name="cambiar">
             </form>
         </section>
     </div>

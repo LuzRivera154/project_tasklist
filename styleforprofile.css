@@ -139,7 +139,7 @@ body {
 .ver-informacion {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 3rem;
+  margin-top: 1rem;
 
 }
 
@@ -164,22 +164,45 @@ body {
   font-size: 1.5rem;
   word-spacing: .5rem;
 }
+/* FOTO PERFIL */
+.foto-perfil{
+  width: 100%;
+  border-radius: 10rem;
+  height: 15rem;
+  object-fit: cover;
+
+}
 
 .eliminar-perfil {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
   margin: 2rem 0;
+  margin-bottom: 0;
   font-family: "Outfit", sans-serif;
 }
 
 .form-eliminar {
-  padding: 1rem;
+  padding: 0;
 }
 
 .btn-form {
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  margin-top:1rem ;
+  font-size: 1.3rem;
+  background: #99045390;
+  color: aliceblue;
+  font-family: "Outfit", sans-serif;
+  ;
+}
+/* FOTO BOTON */
+.hidden{
+  display: none;
+}
+.btn-subir-foto{
   padding: 1rem;
   border-radius: 1rem;
   margin-left: 1rem;
@@ -187,19 +210,29 @@ body {
   background: #99045390;
   color: aliceblue;
   font-family: "Outfit", sans-serif;
-  ;
 }
-
+.form-foto{
+  display: flex;
+  flex-direction: column;
+}
+.form-foto label{
+  font-size: 1.5rem;
+    font-family: "Outfit", sans-serif;
+    margin-left: 1rem;
+    padding: 1rem;
+}
 /* SECCION ESCONDIDA*/
 
 .section-escondida {
   text-align: center;
   font-family: "Outfit", sans-serif;
   display: none;
+  margin: 2rem 0;
 }
 
 .section-escondida p {
   font-size: 1.5rem;
+  margin: .5rem 0;
 }
 
 .section-escondida label {

@@ -117,8 +117,8 @@ function borrarTodasLasTareas($id)
 {
     $db = conection();
     $sql = "DELETE FROM Tasklist WHERE id_user = :id_user";
-    $eliminar = $db ->prepare($sql);
-    $eliminar -> execute(['id_user' => $id]);
+    $eliminar = $db->prepare($sql);
+    $eliminar->execute(['id_user' => $id]);
 }
 
 
@@ -134,11 +134,30 @@ function verPerfil($id)
     return $ver->fetchAll(PDO::FETCH_ASSOC);
 }
 //CAMBIAR CONTRASENA
-function updatepassword($id,$password){
+function updatepassword($id, $password)
+{
     $db = conection();
     $sql = "UPDATE UserForTasklist SET Password = :password WHERE id = :id";
-    $cambiar = $db -> prepare($sql);
-    $cambiar -> execute(['id' => $id, 'password' => password_hash($password, PASSWORD_BCRYPT) ]);
+    $cambiar = $db->prepare($sql);
+    $cambiar->execute(['id' => $id, 'password' => password_hash($password, PASSWORD_BCRYPT)]);
 }
 
-//FUNCION CAMBIAR IDIOMA GET=FR OR GET=ESP
+//FUNCION AGREGAR FOTO DE PERFIL
+function agregarFoto($fotoRuta,$userId){
+    $db = conection();
+    $sql = "UPDATE UserForTasklist SET Foto = :Foto WHERE id = :id";
+    $agregar = $db -> prepare($sql);    
+    $agregar->execute([
+        'Foto' => $fotoRuta,
+        'id'=> $userId
+    ]);
+}   
+
+//FUNCION PARA VER IMAGENES
+function verFoto($id){
+    $db = conection();
+    $sql = "SELECT Foto FROM UserForTasklist WHERE id = :id";
+    $Fotos = $db -> prepare($sql);
+    $Fotos -> execute(['id' => $id]);
+    return $Fotos -> fetchColumn();
+}

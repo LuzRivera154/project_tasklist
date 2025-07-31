@@ -30,6 +30,29 @@ if (isset($_POST['cambiar'])) {
     echo "<script>alert('Votre mot de passe a été enregistré');</script>";
 }
 
+$directorio = "uploads";
+$filePath = __DIR__ . '/' . $rutaFoto;
+
+if (isset($_FILES['imagen'])  &&  $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+    $userId = $_SESSION['id'];
+    $imagen = $_FILES['imagen'];
+    $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+    $nombreArchivo = "perfil_" . $userId . "." . $extension;
+    $patch = $directorio . '/' . $nombreArchivo;
+    $patch = $directorio . '/' . $nombreArchivo;
+
+    if (move_uploaded_file($imagen['tmp_name'], $patch)) {
+        echo "<script>alert('Foto subida con exito!');</script>";
+        //funcion para guardar la foto en base de datos
+        $fotos = agregarFoto($patch, $userId);
+    } else {
+        echo "<script>alert('Error!');</script>";
+    }
+}
+
+
+$rutaFoto = verFoto($_SESSION['id']);
+
 
 ?>
 
@@ -78,7 +101,19 @@ if (isset($_POST['cambiar'])) {
         </nav>
 
         <section class="ver-informacion">
-            <i class="fa-solid fa-circle-user icono-user"></i>
+            <div class="container-foto de perfil">
+            <?php
+                if ($rutaFoto && file_exists($filePath)): ?>
+                    <img src="<?= htmlspecialchars($rutaFoto) ?>" class="foto-perfil" alt="Foto de perfil">
+                <?php else: ?>
+                    <i class="fa-solid fa-circle-user icono-user"></i>
+                <?php endif; ?>
+                <form action="" class="form-foto" method="post" enctype="multipart/form-data">
+                    <label for="imagen">Changer la photo de profil</label>
+                    <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required>
+                    <input type="submit" name="subir_foto" class="btn-subir-foto" value="Charger la photo">
+                </form>
+            </div>
             <div>
                 <h2 class="titulo-informacion">Informations</h2>
                 <ul class="lista">
