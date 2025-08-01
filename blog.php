@@ -56,7 +56,9 @@ $posts = getAllPost();
                 </li>
             </ul>
         </nav>
-        <a href="postear.php">Postear algo</a>
+        <div class="btn-postear" >
+            <a  class="postear" href="postear.php">Postear</a>
+        </div>
         <section class="mostrar-post">
             <!-- Mostrar post -->
             <div class="container-post">

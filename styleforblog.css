@@ -163,6 +163,7 @@ body {
 .texto-post h3 {
     margin-bottom: 0;
     font-family: "Tagesschrift", system-ui;
+    font-size: 1.5rem;
 }
 
 .texto-post p {
@@ -180,22 +181,51 @@ body {
     flex-direction: column;
     margin-left: 3rem;
     width: 50%;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.5rem;
 }
 
 .contenido {
-    background: #897a7a;
+    background: #d59d9d;
     height: 9rem;
-
+    border: 2px solid #b78585;
+    box-shadow: 2px 7px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
 .datetime-p {
     text-align: end;
     font-family: "Roboto", sans-serif;
+    font-size: .8rem;
 }
 
 .icono-avatar {
     font-size: 10rem;
 }
-.titulo-post{
-      font-family: "Outfit", sans-serif;
+
+.titulo-post {
+    font-family: "Outfit", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+.btn-postear{
+    display: flex;
+    justify-content: end;
+    padding-right: 2rem;
+}
+.postear{
+    background: #f04747ad;
+  padding: 1rem;
+  border-radius: 3rem;
+  color: rgb(255, 254, 254);
+  text-decoration: none;
+  border: 2px solid #b78585;
+     font-family: "Outfit", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+}
+.postear:hover{
+background: #f05c5cad;
+  border: 2px solid #a34646;
+  color: #ffffff;
 }

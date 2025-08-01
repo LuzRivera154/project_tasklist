@@ -113,7 +113,9 @@ $rutaFoto = verFoto($_SESSION['id']);
                 <form action="" class="form-foto" method="post" enctype="multipart/form-data">
                     <label class="labelforimagen" for="imagen">Cambiar foto de perfil</label>
                     <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required>
-                    
+                    <!-- CHATGPT -->
+                    <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required onchange="mostrarPreview(this)">
+                    <!-- Chatgpt -->
                     <input type="submit" name="subir_foto" class="btn-subir-foto" value="Subir foto">
                 </form>
             </div>
@@ -176,19 +178,22 @@ $rutaFoto = verFoto($_SESSION['id']);
 
     //NI IDEA ESTO ES PARA PREVISUALIZAR LAS FOTOS
     function mostrarPreview(input) {
-    const preview = document.getElementById('preview');
+        const preview = document.getElementById('preview');
 
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
 
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        };
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
 
-        reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-}
+        document.getElementById('imagen').addEventListener('change', function() {
+        mostrarPreview(this);
+    });
 </script>
 
 </html>
