@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
         <div class="idioma">
         <ul class="ul-idioma">
-            <li class="opcion">Langue
+            <li class="opcion"> Idioma
                 <ul class="ul-container">
                     <li class="lista-idioma"><a href="registro.php">Español</a></li>
                     <li class="lista-idioma"><a href="registro-fr.php">Frances</a></li>

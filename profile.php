@@ -35,10 +35,10 @@ $filePath = __DIR__ . '/' . $rutaFoto;
 if (isset($_FILES['imagen'])  &&  $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     $userId = $_SESSION['id'];
     $imagen = $_FILES['imagen'];
-    $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
-    $nombreArchivo = "perfil_" . $userId . "." . $extension;
+    $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
+    $nombreArchivo = "perfil_" . $userId . '.'. $extension; ;
     $patch = $directorio . '/' . $nombreArchivo;
-    $patch = $directorio . '/' . $nombreArchivo;
+
 
     if (move_uploaded_file($imagen['tmp_name'], $patch)) {
         echo "<script>alert('Foto subida con exito!');</script>";
@@ -72,7 +72,7 @@ $rutaFoto = verFoto($_SESSION['id']);
 <body>
     <div class="idioma">
         <ul class="ul-idioma">
-            <li class="opcion">Idioma
+            <li class="opcion"> Idioma
                 <ul class="ul-container">
                     <li class="lista-idioma"><a href="profile.php">Español</a></li>
                     <li class="lista-idioma"><a href="profile-fr.php">Frances</a></li>
@@ -107,7 +107,7 @@ $rutaFoto = verFoto($_SESSION['id']);
                     <i class="fa-solid fa-circle-user icono-user"></i>
                 <?php endif; ?>
                 <form action="" class="form-foto" method="post" enctype="multipart/form-data">
-                    <label for="imagen">Cambiar foto de perfil</label>
+                    <label class="labelforimagen" for="imagen">Cambiar foto de perfil</label>
                     <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required>
                     <input type="submit" name="subir_foto" class="btn-subir-foto" value="Subir foto">
                 </form>

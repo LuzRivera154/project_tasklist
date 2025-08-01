@@ -17,11 +17,13 @@ body {
   cursor: pointer;
 
 }
-.opcion{
+
+.opcion {
   text-decoration: underline;
   border-radius: .5rem;
   padding: .5rem;
 }
+
 .ul-container {
   position: absolute;
   margin-top: 1rem;
@@ -48,9 +50,11 @@ body {
   color: #333;
   display: block;
 }
-.lista-idioma a:hover{
- color: rgb(154, 30, 102);
+
+.lista-idioma a:hover {
+  color: rgb(154, 30, 102);
 }
+
 .ul-idioma li.opcion:hover .ul-container {
   display: block;
 }
@@ -164,8 +168,9 @@ body {
   font-size: 1.5rem;
   word-spacing: .5rem;
 }
+
 /* FOTO PERFIL */
-.foto-perfil{
+.foto-perfil {
   width: 100%;
   border-radius: 10rem;
   height: 15rem;
@@ -191,36 +196,57 @@ body {
   padding: 1rem;
   border-radius: 1rem;
   margin-left: 1rem;
-  margin-top:1rem ;
+  margin-top: 1rem;
   font-size: 1.3rem;
   background: #99045390;
   color: aliceblue;
   font-family: "Outfit", sans-serif;
   ;
 }
+
+
+
 /* FOTO BOTON */
-.hidden{
+.hidden {
   display: none;
 }
-.btn-subir-foto{
+
+.btn-subir-foto {
   padding: 1rem;
   border-radius: 1rem;
-  margin-left: 1rem;
+  margin-left: 6rem;
   font-size: 1.3rem;
   background: #99045390;
   color: aliceblue;
   font-family: "Outfit", sans-serif;
+  width: 12rem;
 }
-.form-foto{
+
+.form-foto {
   display: flex;
   flex-direction: column;
 }
-.form-foto label{
-  font-size: 1.5rem;
-    font-family: "Outfit", sans-serif;
-    margin-left: 1rem;
-    padding: 1rem;
+
+.labelforimagen {
+  padding: 1.4rem;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  background: #99045390;
+  color: aliceblue;
+  font-family: "Outfit", sans-serif;
+  width: 15rem;
+  margin: .7rem 0 ;
+  text-align: center;
+  margin-left: 3rem;
 }
+
+.labelforimagen:hover {
+  background: #cb077090;
+  color: rgb(231, 241, 250);
+  border: 2px solid #cb076fe3;
+  ;
+}
+
 /* SECCION ESCONDIDA*/
 
 .section-escondida {
@@ -256,10 +282,13 @@ body {
   padding: 1.2rem;
   border-radius: 1rem;
   font-size: 1.2rem;
-  
+
 }
-.cambiar:hover ,.btn-form:hover{
+
+.cambiar:hover,
+.btn-form:hover, .btn-subir-foto:hover {
   background: #cb077090;
   color: rgb(231, 241, 250);
-  border: 2px solid #cb076fe3; ;
+  border: 2px solid #cb076fe3;
+  ;
 }
