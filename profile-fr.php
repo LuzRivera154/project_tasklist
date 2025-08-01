@@ -59,7 +59,8 @@ $rutaFoto = verFoto($_SESSION['id']);
 <html lang="en">
 
 <head>
-    <script src="https://kit.fontawesome.com/82497b746b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleforprofile.css">
@@ -91,6 +92,11 @@ $rutaFoto = verFoto($_SESSION['id']);
                 <li><a href="inicio-fr.php">Ajouter une tâche
                         <i class="fa-solid fa-pen-to-square icono_agregar"></i>
                     </a></li>
+                                    <li>
+                    <a href="blog.php">Blog
+                        <i class="fa-solid fa-newspaper icono-blog"></i>
+                    </a>
+                </li>
                 <li>
                     <a href="exit.php" name="exit">Exit
                         <i class="fa-solid fa-right-from-bracket exit"></i>

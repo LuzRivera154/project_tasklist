@@ -36,7 +36,7 @@ if (isset($_FILES['imagen'])  &&  $_FILES['imagen']['error'] === UPLOAD_ERR_OK) 
     $userId = $_SESSION['id'];
     $imagen = $_FILES['imagen'];
     $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
-    $nombreArchivo = "perfil_" . $userId . '.'. $extension; ;
+    $nombreArchivo = "perfil_" . $userId . '.' . $extension;;
     $patch = $directorio . '/' . $nombreArchivo;
 
 
@@ -58,8 +58,7 @@ $rutaFoto = verFoto($_SESSION['id']);
 <html lang="en">
 
 <head>
-    <script src="https://kit.fontawesome.com/82497b746b.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleforprofile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +90,11 @@ $rutaFoto = verFoto($_SESSION['id']);
                         <i class="fa-solid fa-pen-to-square icono_agregar"></i>
                     </a></li>
                 <li>
+                    <a href="blog.php">Blog
+                        <i class="fa-solid fa-newspaper icono-blog"></i>
+                    </a>
+                </li>
+                <li>
                     <a href="exit.php" name="exit">Exit
                         <i class="fa-solid fa-right-from-bracket exit"></i>
                     </a>
@@ -100,7 +104,7 @@ $rutaFoto = verFoto($_SESSION['id']);
 
         <section class="ver-informacion">
             <div class="container-foto de perfil">
-            <?php
+                <?php
                 if ($rutaFoto && file_exists($filePath)): ?>
                     <img src="<?= htmlspecialchars($rutaFoto) ?>" class="foto-perfil" alt="Foto de perfil">
                 <?php else: ?>
@@ -109,6 +113,7 @@ $rutaFoto = verFoto($_SESSION['id']);
                 <form action="" class="form-foto" method="post" enctype="multipart/form-data">
                     <label class="labelforimagen" for="imagen">Cambiar foto de perfil</label>
                     <input type="file" class="hidden" name="imagen" id="imagen" accept="image/*" required>
+                    
                     <input type="submit" name="subir_foto" class="btn-subir-foto" value="Subir foto">
                 </form>
             </div>
@@ -168,6 +173,22 @@ $rutaFoto = verFoto($_SESSION['id']);
         abierto = !abierto;
         menu.style.display = abierto ? 'block' : 'none';
     });
+
+    //NI IDEA ESTO ES PARA PREVISUALIZAR LAS FOTOS
+    function mostrarPreview(input) {
+    const preview = document.getElementById('preview');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 </script>
 
 </html>

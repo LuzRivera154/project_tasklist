@@ -161,3 +161,31 @@ function verFoto($id){
     $Fotos -> execute(['id' => $id]);
     return $Fotos -> fetchColumn();
 }
+
+//FUNCION PARA INSERTAR POST
+function insertPost($id_user,$titulo,$contenido,$fecha){
+    $db = conection();
+    $sql = "INSERT INTO Post (id_user, Titulo, Contenido, Fecha) 
+    VALUES (? , ? , ?, ?)";
+    $insertar = $db -> prepare($sql);
+   return $insertar -> execute([
+         $id_user,
+         $titulo,
+         $contenido,
+         $fecha
+    ]);
+}
+
+//FUNCION PARA VER LOS POST EN GENERAL
+
+function getAllPost(){
+    $db = conection();
+    $sql = "SELECT Post.id_user, UserForTasklist.User, UserForTasklist.Foto , Post.Titulo, Post.Fecha, Post.Contenido
+            FROM Post 
+            INNER JOIN UserForTasklist ON Post.id_user = UserForTasklist.id";
+    $verPost = $db -> prepare($sql);
+    $verPost -> execute();
+     return $verPost -> fetchAll(PDO::FETCH_ASSOC);
+}
+//FUNCION PARA INSERTAR COMENTARIOS
+//FUNCION PARA VER LOS COMENTARIOS

@@ -63,7 +63,6 @@ body {
 body {
   margin: 0;
   background: linear-gradient(135deg, rgba(208, 65, 94, 1.000) 0.000%, rgba(208, 65, 94, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 80.000%, rgba(230, 216, 134, 1.000) 80.000% 100.000%);
-  background-repeat: no-repeat;
   background-size: cover;
   overflow-y: hidden;
 }
@@ -131,10 +130,10 @@ body {
 
 /* CONTAINER */
 .container {
-  height: 90%;
+  height: 93%;
   background: #faebd7a6;
   width: 90vw;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border-radius: 3rem;
 }
 
@@ -225,6 +224,7 @@ body {
 .form-foto {
   display: flex;
   flex-direction: column;
+  margin-left: -5rem;
 }
 
 .labelforimagen {
@@ -238,12 +238,13 @@ body {
   margin: .7rem 0 ;
   text-align: center;
   margin-left: 3rem;
+  border: 2px solid #99045390;
 }
 
 .labelforimagen:hover {
   background: #cb077090;
   color: rgb(231, 241, 250);
-  border: 2px solid #cb076fe3;
+  border: 2px solid #6a61668f;
   ;
 }
 

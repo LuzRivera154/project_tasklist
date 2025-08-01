@@ -42,7 +42,7 @@ if (isset($_GET['eliminar_id'])) {
 <html lang="en">
 
 <head>
-    <script src="https://kit.fontawesome.com/82497b746b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +75,11 @@ if (isset($_GET['eliminar_id'])) {
                 <li><a href="#agregar-tarea">Agregar Tarea
                         <i class="fa-solid fa-pen-to-square icono-agregar"></i>
                     </a></li>
+                                    <li>
+                    <a href="blog.php">Blog
+                        <i class="fa-solid fa-newspaper icono-blog"></i>
+                    </a>
+                </li>
                 <li>
                     <a href="exit.php" name="exit">Exit
                         <i class="fa-solid fa-right-from-bracket exit"></i>
