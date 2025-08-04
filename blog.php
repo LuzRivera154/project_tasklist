@@ -39,6 +39,9 @@ $posts = getAllPost();
         <nav class="container-nav">
             <ul>
                 <li><a href="inicio.php">Inicio
+                        <i class="fa-solid fa-house icono-inicio"></i>
+                    </a></li>
+                <li><a href="profile.php">Perfil
                         <i class="fa-solid fa-circle-user icono-inicio"></i>
                     </a></li>
                 <li><a href="inicio.php">Agregar Tarea
@@ -56,8 +59,8 @@ $posts = getAllPost();
                 </li>
             </ul>
         </nav>
-        <div class="btn-postear" >
-            <a  class="postear" href="postear.php">Postear</a>
+        <div class="btn-postear">
+            <a class="postear" href="postear.php">Postear</a>
         </div>
         <section class="mostrar-post">
             <!-- Mostrar post -->
@@ -65,13 +68,13 @@ $posts = getAllPost();
                 <?php foreach ($posts as $post): ?>
                     <div class="post-unico">
                         <!-- HEADER post -->
-                        
-                            <?php if (!is_null($post['Foto'])): ?>
-                                <img class="avatar" src="<?= $post['Foto'] ?>" alt="avatar">
-                            <?php else : ?>
-                                <i class="fa-solid fa-circle-user icono-avatar"></i>
-                            <?php endif; ?>
-                        
+
+                        <?php if (!is_null($post['Foto'])): ?>
+                            <img class="avatar" src="<?= $post['Foto'] ?>" alt="avatar">
+                        <?php else : ?>
+                            <i class="fa-solid fa-circle-user icono-avatar"></i>
+                        <?php endif; ?>
+
                         <!-- contenido post -->
                         <div class="contenido-post">
                             <div class="texto-post">

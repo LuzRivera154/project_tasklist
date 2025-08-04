@@ -84,6 +84,9 @@ $rutaFoto = verFoto($_SESSION['id']);
         <nav class="container-nav">
             <ul>
                 <li><a href="inicio.php">Inicio
+                        <i class="fa-solid fa-house icono-inicio"></i>
+                    </a></li>
+                     <li><a href="profile.php">Perfil
                         <i class="fa-solid fa-circle-user icono-inicio"></i>
                     </a></li>
                 <li><a href="inicio.php">Agregar Tarea

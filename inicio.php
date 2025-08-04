@@ -53,7 +53,7 @@ if (isset($_GET['eliminar_id'])) {
 </head>
 
 <body>
-        <div class="idioma">
+    <div class="idioma">
         <ul class="ul-idioma">
             <li class="opcion">Idioma
                 <ul class="ul-container">
@@ -69,13 +69,16 @@ if (isset($_GET['eliminar_id'])) {
 
         <nav class="container-exit">
             <ul>
+                <li><a href="inicio.php">Inicio
+                        <i class="fa-solid fa-house icono-inicio"></i>
+                    </a></li>
                 <li><a href="profile.php">Perfil
                         <i class="fa-solid fa-circle-user icono-inicio"></i>
                     </a></li>
                 <li><a href="#agregar-tarea">Agregar Tarea
                         <i class="fa-solid fa-pen-to-square icono-agregar"></i>
                     </a></li>
-                                    <li>
+                <li>
                     <a href="blog.php">Blog
                         <i class="fa-solid fa-newspaper icono-blog"></i>
                     </a>

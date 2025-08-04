@@ -63,8 +63,8 @@ body {
 body {
   margin: 0;
   background: linear-gradient(135deg, rgba(208, 65, 94, 1.000) 0.000%, rgba(208, 65, 94, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 20.000%, rgba(214, 87, 103, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 40.000%, rgba(219, 121, 113, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 60.000%, rgba(224, 165, 124, 1.000) 80.000%, rgba(230, 216, 134, 1.000) 80.000% 100.000%);
-  background-repeat: no-repeat;
   background-size: cover;
+  overflow-y: hidden;
 }
 /* NAV */
 .container-nav ul {
@@ -132,6 +132,38 @@ body {
   height: 90%;
   background: #faebd7a6;
   width: 90vw;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border-radius: 3rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    font-size: 1.5rem;
+}
+label{
+    margin: 1rem 0;
+      font-family: "Outfit", sans-serif;
+}
+form input{
+    padding: 1rem;
+  border-radius: .5rem;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin: 1rem 0;
+    font-family: "Outfit", sans-serif;
+}
+input:focus{
+    border: 3px solid rgb(127, 27, 77);
+}
+textarea{
+
+      font-family: "Outfit", sans-serif;
+      font-size: 1.3rem;
+  padding: 1rem;
+  border: 2px solid rgba(39, 38, 38, 0.534);
+  border-radius: .5rem;
+}
+textarea:focus{
+        border: 3px solid rgb(127, 27, 77);
 }

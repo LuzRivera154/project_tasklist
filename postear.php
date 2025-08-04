@@ -44,6 +44,9 @@ if (isset($_POST['Publicar'])) {
         <nav class="container-nav">
             <ul>
                 <li><a href="inicio.php">Inicio
+                        <i class="fa-solid fa-house icono-inicio"></i>
+                    </a></li>
+                     <li><a href="profile.php">Perfil
                         <i class="fa-solid fa-circle-user icono-inicio"></i>
                     </a></li>
                 <li><a href="inicio.php">Agregar Tarea
@@ -62,14 +65,16 @@ if (isset($_POST['Publicar'])) {
             </ul>
         </nav>
             <section class="publicar-post">
+                <div class="container-publicar">
             <form action="" method="post">
-                <label for="titulo-post">Titulo</label>
+                <label for="titulo-post">Titulo:</label>
                 <input type="text" name="titulo-post" id="titulo-post" placeholder="Titulo del post" required>
-                <label for="contenido-post">contenido</label>
-                <textarea name="contenido-post" id="contenido" placeholder="Escribi aqui tu post" required></textarea>
+                <label for="contenido-post">Contenido:</label>
+                <textarea rows="4" cols="50" maxlength="255" name="contenido-post" id="contenido" placeholder="Escribi aqui tu post" required></textarea>
                 <input type="submit" name="Publicar" value="Publicar">
             </form>
             <a href="blog.php">volver</a>
+            </div>
         </section>
     </div>
 </body>
